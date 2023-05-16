@@ -311,6 +311,33 @@ delete from khoa_hoc
 -- 30.xem trong số các sinh viên quê Hải Phòng thì ID lớn nhất là bn
 -- 31.tính tổng id của sinh viên có quê Nam định
 -- 32.xem các tỉnh thành đang có trong cột quê quán
+-- 33.tính tổng id sinh viên của từng quê quán
+-- 34.Xem thông tin sinh viên có ID lớn nhất
+-- 35.xem quê quán nào xuất hiện nhiều hơn 3 lần
+-- 36.Tính tổng id của từng quê quán và show ra nơi nào có tổng > 40
+-- 37.Xem thông tin ngày giờ hiện tại
+-- 38.Lấy ra phần ngày trong chuỗi ngày '19-10-1995'
+-- 39.Lấy ra phần tháng trong chuỗi ngày '19-10-1995'
+-- 40.Lấy ra phần năm trong chuỗi ngày '19-10-1995'
+-- Lấy ra phần ngày của ngày hiện tại
+-- 41.xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu ngày
+-- 42.xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu tháng
+-- 43.xem từ ngày sinh của bạn tới ngày hiện tại là bao nhiêu năm (tính tuổi của bạn)
+-- 44.Xem danh sách những học viên trên 25 tuổi
+-- 45.xem danh sách sinh viên sinh nhật vào tháng 5
+-- 46.xem danh sách sinh viên có sinh nhật tháng này
+-- 47. xem danh sách sinh viên chưa có thông tin quê quán
+-- 48.xem danh sách khóa học mà giáo viên có ID = 1 dậy
+-- 49.xem danh sách khóa học mà giáo viên có ID = 1 dậy và tên của giáo viên đó
+-- 50.Đếm xem khóa học Tester basic có bn học viên đăng ký
+-- 51.Xem danh sách tên sinh viên đăng ký học lớp Tester basic
+-- 52.xem danh sách giảng viên nào chưa được phân công dậy
+-- 53.xem danh sách khóa học nào chưa được phân công dậy
+-- 54.cập nhật quê quán giáo viên Lưu Thanh Tuấn  thành Sài Gòn
+-- 55.cập nhật quê quán và tên của Giáo viên có id = 1 thành 'Lưu Hà An, hải phòng
+-- 56.cập nhật tất cả quê quán sv thành Việt Nam
+-- 57.xóa sinh viên có id = 20
+-- 58.xóa tất dữ liệu bảng khóa học
 
 
 
