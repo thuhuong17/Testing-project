@@ -115,72 +115,7 @@ insert into Phieu_DK values (28,1,8);
 insert into Phieu_DK values (29,2,9);
 insert into Phieu_DK values (30,3,10);
 
--- xem danh sách tất cả sinh viên có trnong hệ thống
-SELECT *FROM SINH_VIEN
---XEM DS TẤT CẢ MÃ VÀ TÊN GIÁO VIÊN TRÊN HỆ THỐNG
-SELECT ID_GV AS 'MÃ GIẢNG VIÊN', TEN_GV AS 'TÊN GIẢNG VIÊN' FROM GIANG_VIEN
--- XEM TOÀN BỘ THÔNG TIN CỦA SINH VIÊN CÓ MÃ LÀ 5
-SELECT *FROM SINH_VIEN WHERE ID_SV=5
--- CẬP NHÂT TÊN CỦA SINH VIÊN CS MÃ 10 THÀNH NGUYÊN NGỌC NGẠN
-SELECT *FROM SINH_VIEN WHERE ID_SV=10
-UPDATE SINH_VIEN SET TEN_SV = N'NGUYỄN NGỌC NGẠN' WHERE ID_SV =10
---XEM DANH SÁCH TOÀN BỘ HỌC VIÊN
-SELECT *FROM SINH_VIEN
--- Xem danh sách sinh viên quê Hải phòng
-SELECT *FROM SINH_VIEN WHERE QUE_QUAN= N'Hải Phòng'
--- --Xem danh sách tên và năm sinh sinh viên có quê ở Hà Nội (gán tên cột thành tiếng việt có dấu)
-SELECT TEN_SV AS 'TÊN SINH VIÊN',NAM_SINH AS 'NĂM SINH'  FROM SINH_VIEN WHERE QUE_QUAN=N'Hà Nội'
--- Xem danh sách sinh viên có ID > 5
-SELECT *FROM SINH_VIEN WHERE ID_SV>5
--- xem danh sách sinh viên có ID từ 1-10
-SELECT *FROM SINH_VIEN WHERE ID_SV>1 AND ID_SV<10
--- Xem danh sách sinh viên có Quê khác Hải Phòng
-SELECT *FROM SINH_VIEN WHERE QUE_QUAN!=N'Hải Phòng'
--- Xem danh sách sinh viên có id từ 10-15 (bao gồm cả 10 và 15)
-SELECT *FROM SINH_VIEN WHERE ID_SV>=10 AND ID_SV<=15
-SELECT *FROM SINH_VIEN WHERE ID_SV BETWEEN 10 AND 15
--- xem danh sách các sinh viên có id 1,5,7
-SELECT *FROM SINH_VIEN WHERE ID_SV IN (1,5,7)
-SELECT *FROM SINH_VIEN WHERE ID_SV =1 OR ID_SV=5 OR ID_SV=7
--- Xem danh sách sinh viên có tên Anh
-SELECT *FROM SINH_VIEN WHERE TEN_SV LIKE '%Anh'
--- Xem danh sách sinh viên có họ NGuyễn
-SELECT *FROM SINH_VIEN WHERE TEN_SV LIKE N'Nguyễn%'
--- Xem danh sách sinh viên có tên đệm là Thị
-SELECT *FROM SINH_VIEN WHERE TEN_SV LIKE N'%Thị%'
--- xem danh sách sinh viên có tên khác Anh
-SELECT *FROM SINH_VIEN WHERE TEN_SV not LIKE '%Anh'
--- Xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 1
-SELECT *FROM SINH_VIEN WHERE ID_SV LIKE '1_'
--- xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 0
-SELECT *FROM SINH_VIEN WHERE ID_SV LIKE '_0'
--- xem danh sách sv có id có 3 chữ số và số giữa là 3
-SELECT *FROM SINH_VIEN WHERE ID_SV LIKE '_3_'
--- Xem danh sách sv và xếp theo thứ tự tên từ a-z
-SELECT *FROM SINH_VIEN ORDER BY TEN_SV ASC 
--- Xem danh sách sv và xếp theo thứ tự tên từ z-a
-SELECT *FROM SINH_VIEN ORDER BY TEN_SV DESC 
--- xem danh sách quê quán sinh viên và loại bỏ dữ liệu trùng rồi xếp theo thứ tự z-a
-SELECT DISTINCT QUE_QUAN FROM SINH_VIEN ORDER BY QUE_QUAN DESC 
--- xem tổng số sinh viên có trong bảng sinh viên
-SELECT COUNT(*) AS 'TONG SO SINH VIEN' FROM SINH_VIEN 
--- xem có bao nhiêu giá trị ở cột quê quán
-SELECT COUNT(QUE_QUAN) AS 'TONG SO QUE QUAN' FROM SINH_VIEN WHERE QUE_QUAN!=''
--- xem  id lớn nhất bảng sinh viên là bn
-SELECT MAX(ID_SV) AS 'ID LON NHAT' FROM SINH_VIEN
--- xem  id nhỏ nhất bảng sinh viên là bn
-SELECT MIN(ID_SV) AS 'ID NHO NHAT' FROM SINH_VIEN
--- xem  id trung bình bảng sinh viên là bn
-SELECT AVG(ID_SV) AS 'ID TB' FROM SINH_VIEN
--- tính tổng số ID cột id
-SELECT SUM(ID_SV) AS 'TOTAL' FROM SINH_VIEN
--- xem có bao nhiêu sinh viên quê ở hà nội
-select count(*) from sinh_vien where que_quan = N'Hà Nội'
--- xem trong số các sinh viên quê Hải Phòng thì ID lớn nhất là bn
-select max(ID_SV) from sinh_vien where que_quan = N'Hải Phòng'
--- tính tổng id của sinh viên có quê Nam định
-select sum(ID_SV) from sinh_vien where que_quan = N'Nam định'
--- xem các tỉnh thành đang có trong cột quê quán
+------------------------MOT SO CAU LENH TRUY VAN-------------
 --SELECT
 --    bieu_thuc1,  bieu_thuc2,...  bieu_thuc_n, 
 --       ham_tong_hop (bieu_thuc)
@@ -190,30 +125,14 @@ select sum(ID_SV) from sinh_vien where que_quan = N'Nam định'
 --GROUP BY
 --    bieu_thuc1,
 --    bieu_thuc2,...;
-select que_quan from sinh_vien group by que_quan
--- tính tổng id sinh viên của từng quê quán
-
+---------------------------------------------------
 --SELECT bieuthuc1, bieuthuc2, … bieuthuc_n,
 --       ham_tong (bieuthuc)
 --FROM bang
 --[WHERE dieukien]
 --GROUP BY bieuthuc1, bieuthuc2, … bieuthuc_n
 --HAVING dieukien_having;
-SELECT SUM(ID_SV) AS 'TONG ID QUE QUAN', QUE_QUAN FROM SINH_VIEN GROUP BY QUE_QUAN
--- Xem thông tin sinh viên có ID lớn nhất
-SELECT *FROM SINH_VIEN WHERE ID_SV=(SELECT MAX(ID_SV) FROM SINH_VIEN)
--- xem quê quán nào xuất hiện nhiều hơn 3 lần
-SELECT QUE_QUAN, COUNT(QUE_QUAN) FROM SINH_VIEN GROUP BY QUE_QUAN HAVING COUNT(QUE_QUAN)>3
--- Tính tổng id của từng quê quán và show ra nơi nào có tổng > 40
-
--- Xem thông tin ngày giờ hiện tại
--- Lấy ra phần ngày trong chuỗi ngày '19-10-1995'
--- Lấy ra phần tháng trong chuỗi ngày '19-10-1995'
--- Lấy ra phần năm trong chuỗi ngày '19-10-1995'
--- Lấy ra phần ngày của ngày hiện tại
--- xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu ngày
--- xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu tháng
--- xem từ ngày sinh của bạn tới ngày hiện tại là bao nhiêu năm (tính tuổi của bạn)
+--------------------------------------------------------------------------------------
 --Hàm DATEPART	Tham số	Ý nghĩa
 --Year	Yy, yyyy	Lấy năm
 --Quarter	Qq, q	Lấy quý
@@ -225,60 +144,7 @@ SELECT QUE_QUAN, COUNT(QUE_QUAN) FROM SINH_VIEN GROUP BY QUE_QUAN HAVING COUNT(Q
 --Minute	Mi, n	Lấy phút
 --Second	Ss, s	Lấy giây
 --Milisecond	Ms	Lấy mili giây
-
---Xem danh sách những học viên trên 25 tuổi
--- xem danh sách sinh viên sinh nhật vào tháng 5
--- xem danh sách sinh viên có sinh nhật tháng này
--- xem danh sách sinh viên chưa có thông tin quê quán
--- xem danh sách khóa học mà giáo viên có ID = 1 dậy
--- xem danh sách khóa học mà giáo viên có ID = 1 dậy và tên của giáo viên đó
---Đếm xem khóa học Tester basic có bn học viên đăng ký
---Xem danh sách tên sinh viên đăng ký học lớp Tester basic
--- xem danh sách giảng viên nào chưa được phân công dậy
--- xem danh sách khóa học nào chưa được phân công dậy
--- cập nhật quê quán giáo viên Lưu Thanh Tuấn  thành Sài Gòn
--- cập nhật quê quán và tên của Giáo viên có id = 1 thành 'Lưu Hà An, hải phòng
--- cập nhật tất cả quê quán sv thành Việt Nam
--- xóa sinh viên có id = 20
--- xóa tất dữ liệu bảng khóa học
--------------------------------------------------///////////////////////////////////////////////
-
-select QUE_QUAN from SINH_VIEN group by QUE_QUAN
-select sum(ID_SV), QUE_QUAN from SINH_VIEN group by QUE_QUAN
-
-select QUE_QUAN, count(QUE_QUAN) from SINH_VIEN group by QUE_QUAN having count(QUE_QUAN)>3
-select que_quan, sum(id_sv) from sinh_vien group by que_quan having sum(id_sv) > 40
-select QUE_QUAN, sum(ID_SV) from SINH_VIEN group by QUE_QUAN having sum(ID_SV)>40
-select GETDATE() as 'thoi gian hien tai'
-select DATEPART(DD,'1995-10-19')
-select DATEPART(MM,'1995-10-19')
-select DATEPART(YYYY,'1995-10-19')
-select DATEPART(DD,GETDATE())
-select DATEDIFF(DD, '1994-1-1', '1994-9-10')
-select DATEDIFF(MM, '1994-1-1', '1994-9-10')
-select DATEDIFF(YYYY, '2001-07-01', GETDATE())
-select TEN_SV from SINH_VIEN where DATEDIFF(YYYY, NAM_SINH, GETDATE())>25
-select TEN_SV from SINH_VIEN where datepart(MM, NAM_SINH)=5
-select * from sinh_vien where DATEPART(mm,nam_sinh) = DATEPART(mm,getdate())
-select * from sinh_vien where QUE_QUAN='' or QUE_QUAN is null
-select * from KHOA_HOC where ID_GV=1
-select a.*,b.ten_gv from KHOA_HOC a join GIANG_VIEN b on a.ID_GV=b.ID_GV where a.ID_GV=1
-select count(b.ID_SV) from KHOA_HOC a join PHIEU_DK b on a.ID_KH=b.ID_KH where a.TEN_KHOA_HOC='Tester basic'
-select count(b.id_kh), a.TEN_KHOA_HOC from khoa_hoc a join phieu_dk b on a.id_kh=b.id_kh where a.TEN_KHOA_HOC = 'Tester basic' group by a.TEN_KHOA_HOC
-select c.TEN_SV from khoa_hoc a join phieu_dk b on a.id_kh=b.id_kh join SINH_VIEN c on b.ID_SV=c.ID_SV where a.TEN_KHOA_HOC = 'Tester basic'
-select a.ten_sv,c.TEN_KHOA_HOC from sinh_vien a join phieu_dk b on a.id_Sv=b.id_Sv join khoa_hoc c on b.id_kh=c.id_kh where c.TEN_KHOA_HOC='Tester basic' 
-select * from giang_vien a left join khoa_hoc b on a.id_gv=b.id_gv where b.id_gv is null
-select * from giang_vien a right join khoa_hoc b on a.id_gv=b.id_gv where a.id_gv is null
-update giang_vien set que_quan = N'Sài Gòn' where Ten_gv = N'Lưu Thanh Tuấn'
-select *from GIANG_VIEN
-update giang_vien set QUE_QUAN=N'hải phòng', TEN_GV = N'Lưu Hà An' where ID_GV = 1
-update SINH_VIEN set QUE_QUAN=N'Việt Nam'
-update sinh_vien set que_quan = N'Việt Nam'
-select *from SINH_VIEN
-delete from SINH_VIEN where ID_SV=1
-delete from sinh_Vien where id_sv=20
-delete from khoa_hoc
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////CAU HOI LAM BAI ////////////////////////////////////////////////////////
 -- 1.xem danh sách tất cả sinh viên có trong hệ thống
 -- 2.XEM DS TẤT CẢ MÃ VÀ TÊN GIÁO VIÊN TRÊN HỆ THỐNG
 -- 3.XEM TOÀN BỘ THÔNG TIN CỦA SINH VIÊN CÓ MÃ LÀ 5
@@ -338,6 +204,134 @@ delete from khoa_hoc
 -- 56.cập nhật tất cả quê quán sv thành Việt Nam
 -- 57.xóa sinh viên có id = 20
 -- 58.xóa tất dữ liệu bảng khóa học
+----------------------DAP AN -------------------------------------------
+-- 1.xem danh sách tất cả sinh viên có trong hệ thống
+select * from SINH_VIEN
+--2. XEM DS TẤT CẢ MÃ VÀ TÊN GIÁO VIÊN TRÊN HỆ THỐNG
+select ID_GV as 'id',TEN_GV as 'ten giao vien' from GIANG_VIEN
+-- 3.XEM TOÀN BỘ THÔNG TIN CỦA SINH VIÊN CÓ MÃ LÀ 5
+select * from SINH_VIEN where ID_SV=10
+-- 4.CẬP NHÂT TÊN CỦA SINH VIÊN CO MÃ 10 THÀNH NGUYÊN NGỌC NGẠN
+SELECT * FROM SINH_VIEN WHERE ID_SV=10
+UPDATE SINH_VIEN SET TEN_SV=N'NGUYÊN NGỌC NGẠN' WHERE ID_SV=10
+--5.XEM DANH SÁCH TOÀN BỘ HỌC VIÊN
+SELECT * FROM SINH_VIEN
+-- 6.Xem danh sách sinh viên quê Hải phòng
+SELECT *FROM SINH_VIEN WHERE QUE_QUAN=N'Hải Phòng'
+-- --7.Xem danh sách tên và năm sinh sinh viên có quê ở Hà Nội (gán tên cột thành tiếng việt có dấu)
+SELECT TEN_SV, NAM_SINH FROM SINH_VIEN WHERE QUE_QUAN=N'Hà Nội'
+-- 8.Xem danh sách sinh viên có ID > 5
+SELECT *FROM SINH_VIEN WHERE ID_SV>5
+-- 9.xem danh sách sinh viên có ID từ 1-10
+SELECT *FROM SINH_VIEN WHERE ID_SV>1 AND ID_SV<10
+-- 10.Xem danh sách sinh viên có Quê khác Hải Phòng
+SELECT *FROM SINH_VIEN WHERE QUE_QUAN!=N'Hải Phòng'
+-- 11.Xem danh sách sinh viên có id từ 10-15 (bao gồm cả 10 và 15)
+SELECT *FROM SINH_VIEN WHERE ID_SV>=10 AND ID_SV<=15 
+SELECT *FROM SINH_VIEN WHERE ID_SV between 10 and 15
+-- 12.xem danh sách các sinh viên có id 1,5,7
+SELECT *FROM SINH_VIEN WHERE ID_SV IN(1,5,7)
+-- 13.Xem danh sách sinh viên có tên Anh
+SELECT *FROM SINH_VIEN WHERE TEN_SV like '%Anh'
+-- 14.Xem danh sách sinh viên có họ NGuyễn
+SELECT *FROM SINH_VIEN WHERE TEN_SV like N'Nguyễn%'
+-- 15.Xem danh sách sinh viên có tên đệm là Thị
+SELECT *FROM SINH_VIEN WHERE TEN_SV like N'%Thị%'
+-- 16.xem danh sách sinh viên có tên khác Anh
+SELECT *FROM SINH_VIEN WHERE TEN_SV not like '%Anh'
+-- 17.Xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 1
+SELECT *FROM SINH_VIEN WHERE ID_SV like '1_'
+-- 18.xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 0
+SELECT *FROM SINH_VIEN WHERE ID_SV like '0_'
+-- 19.xem danh sách sv có id có 3 chữ số và số giữa là 3
+SELECT *FROM SINH_VIEN WHERE ID_SV like '_3_'
+-- 20.Xem danh sách sv và xếp theo thứ tự tên từ a-z
+SELECT *FROM SINH_VIEN order by ID_SV asc
+-- 21.Xem danh sách sv và xếp theo thứ tự tên từ z-a
+SELECT *FROM SINH_VIEN order by ID_SV desc
+-- 22.xem danh sách quê quán sinh viên và loại bỏ dữ liệu trùng rồi xếp theo thứ tự z-a
+SELECT distinct QUE_QUAN FROM SINH_VIEN order by QUE_QUAN desc
+-- 23.xem tổng số sinh viên có trong bảng sinh viên
+SELECT count(*) as 'tong so sinh vien' FROM SINH_VIEN 
+-- 24.xem có bao nhiêu giá trị ở cột quê quán
+SELECT count(QUE_QUAN) as 'tong so que' FROM SINH_VIEN 
+-- 25.xem  id lớn nhất bảng sinh viên là bn
+SELECT max(ID_SV) FROM SINH_VIEN 
+-- 26.xem  id nhỏ nhất bảng sinh viên là bn
+SELECT min(ID_SV) FROM SINH_VIEN 
+-- 27.xem  id trung bình bảng sinh viên là bn
+SELECT avg(ID_SV) FROM SINH_VIEN 
+-- 28.tính tổng số ID cột id
+SELECT sum(ID_SV) FROM SINH_VIEN 
+-- 29.xem có bao nhiêu sinh viên quê ở hà nội
+SELECT count(*) as 'so luong sinh vien que ha noi' FROM SINH_VIEN where QUE_QUAN=N'Hà Nội'
+-- 30.xem trong số các sinh viên quê Hải Phòng thì ID lớn nhất là bn
+SELECT MAX(ID_SV) FROM SINH_VIEN where QUE_QUAN=N'Hải Phòng'
+-- 31.tính tổng id của sinh viên có quê Nam định
+SELECT sum(ID_SV) FROM SINH_VIEN where QUE_QUAN=N'Nam Định'
+-- 32.xem các tỉnh thành đang có trong cột quê quán
+select QUE_QUAN from SINH_VIEN group by QUE_QUAN
+-- 33.tính tổng id sinh viên của từng quê quán
+select sum(ID_SV) as 'tong id sv', QUE_QUAN as 'que quan' from SINH_VIEN group by QUE_QUAN
+-- 34.Xem thông tin sinh viên có ID lớn nhất
+select * from SINH_VIEN where ID_SV=(select max(ID_SV) from SINH_VIEN)
+-- 35.xem quê quán nào xuất hiện nhiều hơn 3 lần
+select que_quan,count(que_quan) from sinh_vien group by que_quan having count(que_quan) >3
+-- 36.Tính tổng id của từng quê quán và show ra nơi nào có tổng > 40
+select que_quan, sum(id_sv) from sinh_vien group by que_quan having sum(id_sv) > 40
+-----------///////////////////////////
+--------- dang nam-thang-ngay: yyyy-mm-dd ->>>>yeu minh di
+-- 37.Xem thông tin ngày giờ hiện tại
+select GETDATE() as 'thoi gian hien tai' 
+-- 38.Lấy ra phần ngày trong chuỗi ngày '19-10-1995'
+select DATEPART(dd,'1995-10-19')
+-- 39.Lấy ra phần tháng trong chuỗi ngày '19-10-1995'
+select DATEPART(mm,'1995-10-19')
+-- 40.Lấy ra phần năm trong chuỗi ngày '19-10-1995'
+select DATEPART(YYYY,'1995-10-19')
+-- Lấy ra phần ngày của ngày hiện tại
+select DATEPART(dd, GETDATE())
+-- 41.xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu ngày
+select DATEDIFF(DD,'1994-1-1','1994-9-10')
+-- 42.xem từ ngày 1-1-1994 tới ngày 10-9-1994 có bao nhiêu tháng
+select DATEDIFF(MM,'1994-1-1','1994-9-10')
+-- 43.xem từ ngày sinh của bạn tới ngày hiện tại là bao nhiêu năm (tính tuổi của bạn)
+select DATEDIFF(YYYY,'2001-7-1',GETDATE())
+-- 44.Xem danh sách những học viên trên 25 tuổi
+select *from SINH_VIEN where DATEDIFF(YYYY,nam_sinh,getdate())>25
+-- 45.xem danh sách sinh viên sinh nhật vào tháng 7
+select * from SINH_VIEN where DATEPART(mm, NAM_SINH)=7
+-- 46.xem danh sách sinh viên có sinh nhật tháng này
+select * from SINH_VIEN where DATEPART(mm, NAM_SINH)=datepart(mm, GETDATE())
+-- 47. xem danh sách sinh viên chưa có thông tin quê quán
+select * from SINH_VIEN where QUE_QUAN= '' or QUE_QUAN is null
+----------------------------------------------------------------------------
+-- 48.xem danh sách khóa học mà giáo viên có ID = 1 day
+select * from KHOA_HOC where ID_GV = 1
+-- 49.xem danh sách khóa học mà giáo viên có ID = 1 dậy và tên của giáo viên đó
+select a.TEN_KHOA_HOC, b.TEN_GV from KHOA_HOC a join GIANG_VIEN b on a.ID_GV=b.ID_GV
+where a.ID_GV = 1 
+select a.*,b.ten_gv from khoa_hoc a join giang_vien b on a.id_gv=b.id_gv where a.id_gv=1
+-- 50.Đếm xem khóa học Tester basic có bn học viên đăng ký
+select count(b.id_kh), a.TEN_KHOA_HOC from khoa_hoc a join phieu_dk b on a.id_kh=b.id_kh where a.TEN_KHOA_HOC = 'Tester basic' group by a.TEN_KHOA_HOC
+-- 51.Xem danh sách tên sinh viên đăng ký học lớp Tester basic
+select a.ten_sv,c.TEN_KHOA_HOC from sinh_vien a join phieu_dk b on a.id_Sv=b.id_Sv join khoa_hoc c on b.id_kh=c.id_kh where c.TEN_KHOA_HOC='Tester basic' 
+-- 52.xem danh sách giảng viên nào chưa được phân công dậy
+select * from giang_vien a left join khoa_hoc b on a.id_gv=b.id_gv where b.id_gv is null
+-- 53.xem danh sách khóa học nào chưa được phân công dậy
+select * from giang_vien a right join khoa_hoc b on a.id_gv=b.id_gv where a.id_gv is null
+-- 54.cập nhật quê quán giáo viên Lưu Thanh Tuấn  thành Sài Gòn
+update GIANG_VIEN set QUE_QUAN =N'Sài Gòn' where TEN_GV=N'Lưu Thanh Tuấn'
+select *from GIANG_VIEN where TEN_GV=N'Lưu Thanh Tuấn'
+-- 55.cập nhật quê quán và tên của Giáo viên có id = 1 thành 'Lưu Hà An, hải phòng
+update GIANG_VIEN set QUE_QUAN =N'Hải phòng', TEN_GV=N'Lưu Hà An' where ID_GV=1
+select *from GIANG_VIEN where ID_GV=1
+-- 56.cập nhật tất cả quê quán sv thành Việt Nam
+update SINH_VIEN set QUE_QUAN =N'Việt Nam'
+-- 57.xóa sinh viên có id = 20
+delete from SINH_VIEN where ID_SV=20
+-- 58.xóa tất dữ liệu bảng khóa học
+delete from KHOA_HOC
 
 
 
