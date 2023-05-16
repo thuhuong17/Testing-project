@@ -278,8 +278,39 @@ select *from SINH_VIEN
 delete from SINH_VIEN where ID_SV=1
 delete from sinh_Vien where id_sv=20
 delete from khoa_hoc
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+-- 1.xem danh sách tất cả sinh viên có trong hệ thống
+-- 2.XEM DS TẤT CẢ MÃ VÀ TÊN GIÁO VIÊN TRÊN HỆ THỐNG
+-- 3.XEM TOÀN BỘ THÔNG TIN CỦA SINH VIÊN CÓ MÃ LÀ 5
+-- 4.CẬP NHÂT TÊN CỦA SINH VIÊN CO MÃ 10 THÀNH NGUYÊN NGỌC NGẠN
+-- 5.XEM DANH SÁCH TOÀN BỘ HỌC VIÊN
+-- 6.Xem danh sách sinh viên quê Hải phòng
+-- 7.Xem danh sách tên và năm sinh sinh viên có quê ở Hà Nội (gán tên cột thành tiếng việt có dấu)
+-- 8.Xem danh sách sinh viên có ID > 5
+-- 9.xem danh sách sinh viên có ID từ 1-10
+-- 10.Xem danh sách sinh viên có Quê khác Hải Phòng
+-- 11.Xem danh sách sinh viên có id từ 10-15 (bao gồm cả 10 và 15)
+-- 12.xem danh sách các sinh viên có id 1,5,7
+-- 13.Xem danh sách sinh viên có tên Anh
+-- 14.Xem danh sách sinh viên có họ NGuyễn
+-- 15.Xem danh sách sinh viên có tên đệm là Thị
+-- 16.xem danh sách sinh viên có tên khác Anh
+-- 17.Xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 1
+-- 18.xem danh sách sinh viên có ID có 2 chữ số và bắt đầu bằng số 0
+-- 19.xem danh sách sv có id có 3 chữ số và số giữa là 3
+-- 20.Xem danh sách sv và xếp theo thứ tự tên từ a-z
+-- 21.Xem danh sách sv và xếp theo thứ tự tên từ z-a
+-- 22.xem danh sách quê quán sinh viên và loại bỏ dữ liệu trùng rồi xếp theo thứ tự z-a
+-- 23.xem tổng số sinh viên có trong bảng sinh viên
+-- 24.xem có bao nhiêu giá trị ở cột quê quán
+-- 25.xem  id lớn nhất bảng sinh viên là bn
+-- 26.xem  id nhỏ nhất bảng sinh viên là bn
+-- 27.xem  id trung bình bảng sinh viên là bn
+-- 28.tính tổng số ID cột id
+-- 29.xem có bao nhiêu sinh viên quê ở hà nội
+-- 30.xem trong số các sinh viên quê Hải Phòng thì ID lớn nhất là bn
+-- 31.tính tổng id của sinh viên có quê Nam định
+-- 32.xem các tỉnh thành đang có trong cột quê quán
 
 
 
