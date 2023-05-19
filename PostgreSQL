@@ -1,5 +1,29 @@
-###Có một số loại kiểu dữ liệu khác nhau có sẵn trong PostgreSQL. Bao gồm những kiểu sau:
+### Có một số loại kiểu dữ liệu khác nhau có sẵn trong PostgreSQL. Bao gồm những kiểu sau:
 1. Text: được sử dụng cho các giá trị chuỗi như tên hay là mô tả sản phẩm
 2. Numeric: sử dụng cho các giá trị dữ liệu đại diện cho số lượng và số đo
 3. Temporal: use for các giá trị dữ liệu đại diện cho ngày và thời gian
 4. Boolean: trạng thái T/F
+### Kiểu dữ liệu tạm thời cho phép bạn lưu trữ ngày tháng và/hoặc thời gian/ Có 5 kiểu dữ liệu tạm thời chính:
+1. DATE: chỉ lưu trữ giá trị của ngày, tháng năm
+2. TIME: lưu trữ các giá trị thời gian ngày
+3. TIMESTAMP: lưu trữ cả ngày tháng năm và thời gian trong ngày
+4. TIMESTAMPTZ: kiểu dữ liệu dấu thời gian, nhận biết múi giwof. là viết tắt của dấu thời gian và múi giờ
+5. INTERVAL: lưu trữ khoảng thời gian
+6. TIMESTAPMTZ: phần mở rộng POSTGRESQL trên các kiểu dữ liệu tạm thời theo tiêu chuẩn SQL
+### Tạo bảng với câu lệnh
+CREATE TABLE tên_bảng
+(
+tên_cột kiểu_dữ_liệu ràng buộc,
+tên_cột kiểu_dữ_liệu ràng buộc
+);
+ví dụ:
+CREATE TABLE account
+(
+user_id SERIAL,
+username VARCHAR(50),
+password VARCHAR(50),
+email VARCHAR(355),
+created_on DATE DEFAULT CURRENT_DATE,
+last_login TIMESTAMP
+);
+### 
