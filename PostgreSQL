@@ -3,6 +3,7 @@
 2. Numeric: sử dụng cho các giá trị dữ liệu đại diện cho số lượng và số đo
 3. Temporal: use for các giá trị dữ liệu đại diện cho ngày và thời gian
 4. Boolean: trạng thái T/F
+
 ### Kiểu dữ liệu tạm thời cho phép bạn lưu trữ ngày tháng và/hoặc thời gian/ Có 5 kiểu dữ liệu tạm thời chính:
 1. DATE: chỉ lưu trữ giá trị của ngày, tháng năm
 2. TIME: lưu trữ các giá trị thời gian ngày
@@ -10,6 +11,7 @@
 4. TIMESTAMPTZ: kiểu dữ liệu dấu thời gian, nhận biết múi giwof. là viết tắt của dấu thời gian và múi giờ
 5. INTERVAL: lưu trữ khoảng thời gian
 6. TIMESTAPMTZ: phần mở rộng POSTGRESQL trên các kiểu dữ liệu tạm thời theo tiêu chuẩn SQL
+
 ### Tạo bảng với câu lệnh
 CREATE TABLE tên_bảng
 (
@@ -26,4 +28,35 @@ email VARCHAR(355),
 created_on DATE DEFAULT CURRENT_DATE,
 last_login TIMESTAMP
 );
+
+### Cú pháp INSERT INTO
+Câu lệnh: INSERT INTO bảng(cột1, cột2, …) VALUES (giá_trị1, giá_trị2, …);
+Ví dụ: 
+INSERT INTO link (id, url, name,description, rel)
+VALUES ('1','http://www.postgresqltutorial.com','PostgreSQL Tutorial',NULL,NULL);
+INSERT INTO link (id, url, name)
+VALUES ('2','http://www.oreilly.com','O''Reilly Media');
+INSERT INTO link
+VALUES ('3','http://www.codelearn.io','Codelearn',NULL,NULL);
+
+### Thêm nhiều hàng vào một bảng cùng một lúc
+INSERT INTO bảng (cột1, cột2, …) 
+VALUES
+	(giá_trị1, giá_trị2, …),
+	(giá_trị1, giá_trị2, …);
+### Để chèn dữ liệu đến từ một bảng khác, bạn sử dụng câu lệnh INSERT INTO SELECT như sau:
+INSERT INTO bảng(cột1, cột2,...)
+SELECT  cột1, cột2,...
+FROM  bảng_khác WHERE  điều_kiện;
+### Nếu bạn muốn chỉ chèn giá trị duy nhất từ một bảng khác, bạn có thể sử dụng từ khóa DISTINCT trong câu lệnh SELECT:
+INSERT INTO bảng(cột1,cột2,...)
+SELECT DISTINCT cột1, cột2,...
+FROM bảng_khác WHERE điều_kiện;
+### Để thêm một cột mới vào một bảng hiện có, hãy sử dụng câu lệnh ALTER TABLE ADD COLUMN như sau:
+ALTER TABLE tên_bảng ADD COLUMN tên_cột_mới kiểu_dữ_liệu DEFAULT giá_trị;
+### Để thêm nhiều cột vào một bảng hiện có, bạn sử dụng nhiều mệnh đề ADD COLUMN trong câu lệnh ALTER TABLE như sau:
+ALTER TABLE tên_bảng
+ADD COLUMN tên_cột_mới_1 kiểu_dữ_liệu ràng_buộc DEFAULT giá_trị,
+ADD COLUMN tên_cột_mới_2 kiểu_dữ_liệu ràng_buộc DEFAULT giá_trị,
+...;
 ### 
