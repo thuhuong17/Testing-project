@@ -59,4 +59,48 @@ ALTER TABLE tên_bảng
 ADD COLUMN tên_cột_mới_1 kiểu_dữ_liệu ràng_buộc DEFAULT giá_trị,
 ADD COLUMN tên_cột_mới_2 kiểu_dữ_liệu ràng_buộc DEFAULT giá_trị,
 ...;
+### Để thay đổi kiểu dữ liệu của một cột, bạn sử dụng câu lệnh ALTER TABLE như sau:
+ALTER TABLE tên_bảng ALTER COLUMN tên_cột [SET DATA] TYPE kiểu_dữ_liệu_mới;
+cung cấp kiểu dữ liệu mới cho cột sau từ khóa TYPE. Có thể sử dụng SET DATA TYPE hay TYPE đều được.
+### Để thay đổi kiểu dữ liệu của nhiều cột trong một câu lệnh, bạn hãy sử dụng cú pháp sau:
+ALTER TABLE tên_bảng
+ALTER COLUMN tên_cột_1 [SET DATA] TYPE kiểu_dữ_liệu_mới,
+ALTER COLUMN tên_cột_2 [SET DATA] TYPE kiểu_dữ_liệu_mới,
+...;
+### Để đổi tên một cột của bảng, bạn sử dụng câu lệnh ALTER TABLE với mệnh đề RENAME COLUMN như sau:
+ALTER TABLE tên_bảng RENAME COLUMN tên_cột TO tên_cột_mới;
+Từ khóa COLUMN trong câu lệnh là tùy chọn, do đó bạn có thể bỏ qua nó như thể hiện trong câu lệnh sau:
+ALTER TABLE tên_bảng RENAME tên_cột TO tên_cột_mới;
+### Ràng buộc toàn vẹn - Integrity Constraints chia làm 3 loại:
+1. ràng buộc thuộc tính, vd kiểu dữ liệu cột
+2. ràng buộc khóa, vd khoa chính
+3. ràng buộc tham chiếu, được thi hành thông qua các khóa ngoại
+Đối với một bảng đã tồn tại có thể sử dụng lệnh ADD CONSTRAINT để thực hiện các ràng buộc như sau:
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name constraint_denification;
+### Câu lệnh DROP CONSTRAINT dùng để xóa các ràng buộc UNIQUE, PRIMARY KEY, FOREIGN KEY, hay CHECK.
+Cú pháp để loại bỏ một ràng buộc trong PostgreSQL là:
+ALTER TABLE tên_bảng DROP CONSTRAINT tên_ràng_buộc;
+Cú pháp để loại bỏ nhiều ràng buộc trong một bảng là:
+ALTER TABLE tên_bảng 
+DROP CONSTRAINT tên_ràng_buộc1,
+DROP CONSTRAINT tên_ràng_buộc2,
+...;
+------------------------------SỬA ĐỔI DATA------------------
+### Để thay đổi giá trị của các cột trong bảng, bạn sử dụng câu lệnh UPDATE . Sau đây minh họa cú pháp của câu lệnh UPDATE :
+UPDATE bảng
+SET cột_1 = giá_trị1, cột_2 = giá_trị2 ,...
+WHERE điều_kiện;
+vd 
+UPDATE reservedNicknames
+--SET id=CONCAT('rename - ',id),
+--nickname=CONCAT('rename - ',nickname)
+SET id='rename - '||id,nickname='rename - '||nickname
+ --update only with nickname which has the length different from 8 characters.
+WHERE LENGTH(nickname) <> 8;
+--Show the information of all reserved nicknames ordering by id.
+SELECT * FROM reservedNicknames ORDER BY id;
+Sử dụng phép || để nối hai chuỗi với nhau. Ví dụ muốn nối 'Code' và 'learn' để cho ra kết quả là 'Codelearn', 
+bạn có thể sử dụng 'Code' || 'learn'.
 ### 
+
