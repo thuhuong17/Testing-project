@@ -102,5 +102,24 @@ WHERE LENGTH(nickname) <> 8;
 SELECT * FROM reservedNicknames ORDER BY id;
 Sử dụng phép || để nối hai chuỗi với nhau. Ví dụ muốn nối 'Code' và 'learn' để cho ra kết quả là 'Codelearn', 
 bạn có thể sử dụng 'Code' || 'learn'.
+### Đây là một cách để cập nhật các cột của bảng dựa trên các giá trị trong bảng khác:
+UPDATE bảng_a
+SET cột_cần_cập_nhật = bảng_b.cột_cập_nhật_theo
+FROM bảng_b
+WHERE điều_kiện_1 AND điều_kiện_2 OR ...;
+vd
+-- Set professor_id to professors.id where first_name, last_name correspond to rows in professors
+UPDATE affiliations
+SET 
+professor_id = professors.id
+FROM 
+professors
+WHERE 
+affiliations.first_name=professors.first_name
+AND 
+affiliations.last_name=professors.last_name;
+-- Have a look at the affiliations table
+SELECT * FROM affiliations;
 ### 
+
 
